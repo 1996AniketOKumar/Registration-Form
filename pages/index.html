@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Student Registration Form</title>
+  <style>
+    h1 {
+      text-align: center;
+      color: rgb(214, 134, 103);
+      text-decoration: underline;
+    }
+
+    table {
+      border: 2px solid rgb(131, 118, 118);
+
+      background: linear-gradient(#c4a8a8, rgb(201, 201, 162));
+      font-family: verdana;
+      font-size: 16px;
+      font-weight: bold;
+      font-style: normal;
+      border-collapse: collapse;
+      width: 50%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="password"] {
+      width: 100%;
+      font-size: 16px;
+      padding: 6px 12px;
+      margin: 5px 5px;
+      box-sizing: border-box;
+      border-radius: 999px;
+    }
+    select[name="fcourse"] {
+      
+      background: #c46e36;
+      border-radius: 999px;
+      box-shadow: #928749 0 10px 20px -10px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      opacity: 1;
+      outline: 0 solid transparent;
+      padding: 8px 18px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: fit-content;
+      word-break: break-word;
+      border: 0;
+    }
+    input[type="submit"],
+    input[type="reset"] {
+    
+      background: #29e6e6;
+      border-radius: 999px;
+      box-shadow: #7ff05d 0 10px 20px -10px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      opacity: 1;
+      outline: 0 solid transparent;
+      padding: 8px 18px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: fit-content;
+      word-break: break-word;
+      border: 0;
+
+    }
+
+    body {
+      background-color: rgb(160, 211, 196);
+      
+    }
+
+    @media (max-width: 700px){
+      h1{font-size: 30px;}
+      table input{padding: 10px 0 0 0;
+        display: block;
+        width: 40%!important;
+      }
+    }
+  </style>
+  <script>
+    function validation() {
+
+      var name = document.forms.regform.fname.value;
+      var phone = document.forms.regform.fphone.value;
+      var dob = document.forms.regform.fdob.value;
+      var password = document.forms.regform.fpass.value;
+      var email = document.forms.regform.femail.value;
+      var address = document.forms.regform.fadd.value;
+      var course = document.forms.regform.fcourse.value;
+      var femail =
+        /^([a-z 0-9\.-]+)@([a-z 0-9-]+).([a-z]{2,8})?$/;
+      var fphone = /^\d{10}$/;
+      var fname = /^\d+$/;
+
+
+      if (name == "" || fname.test(fname)) {
+        window.alert("Please enter your name properly.");
+        name.focus();
+        return false;
+      } else if (phone == "" || fphone.test(fphone)) {
+        alert("Please enter valid phone number.");
+        phone.focus();
+        return false;
+      } else if (email == "" || femail.test(femail)) {
+        window.alert("Please enter a valid e-mail address.");
+        email.focus();
+        return false;
+      } else if (password.length < 6) {
+        alert("Password should be atleast 6 character long");
+        password.focus();
+        return false;
+      } else if (address == "") {
+        window.alert("Please enter your address.");
+        address.focus();
+        return false;
+      } else if (what.selectedIndex == -1) {
+        alert("Please enter your course.");
+        what.focus();
+        return false;
+      }
+      
+
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Student Registration Form</h1>
+  <form action="/register" name="regform" onsubmit="return validation()" method="post">
+    <table align="center" cellpadding="10">
+      <tr>
+        <td>Name:-</td>
+        <td><input type="text" name="fname" required /></td>
+      </tr>
+      <tr>
+        <td>Phone:-</td>
+        <td><input type="text" name="fphone" maxlength="10" required /></td>
+      </tr>
+      <tr>
+        <td>Date of Birth:-</td>
+        <td><input type="date" name="fdob" required /></td>
+      </tr>
+      <tr>
+        <td>Email:-</td>
+        <td><input type="email" name="femail" required /></td>
+      </tr>
+      <tr>
+        <td>Password:-</td>
+        <td><input type="password" name="fpass" required /></td>
+      </tr>
+      <tr>
+        <td>Address:-</td>
+        <td><input type="text" name="fadd" required /></td>
+      </tr>
+      <tr>
+        <td>Course:-</td>
+        <td>
+          
+          <select name="fcourse" required>
+            <option>Select</option>
+            <option>BCA</option>
+            <option>MCA</option>
+            <option>BBA</option>
+            <option>MBA</option>
+            <option>BA</option>
+            <option>B.SC</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Submit" /></td>
+        <td><input type="reset" value="Reset" /></td>
+      </tr>
+    </table>
+  </form>
+</body>
+
+</html>
